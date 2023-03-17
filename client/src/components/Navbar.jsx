@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../assets/Logo.png';
 import { ButtonPrimary } from '../Reusable';
 import { NavLink, Link } from 'react-router-dom';
@@ -6,6 +6,9 @@ import '../../public/Styles/navBar.scss';
 import SocialMenu from './SocialMenu';
 
 const Navbar = () => {
+
+    const [showSocial, setShowSocial] = useState(false);
+
     return (
         <div >
             <div className="navBar">
@@ -22,7 +25,7 @@ const Navbar = () => {
                             <a className='nav__link' href='mailto:voidmain.1812@gmail.com' title='mail us your queries' >Questions</a>
                         </li>
                         <li>
-                            <a className='nav__link' >Social</a>
+                            <a className='nav__link' onMouseEnter={() => setShowSocial(true)} >Social</a>
                         </li>
                     </ul>
                 </div>
@@ -31,7 +34,12 @@ const Navbar = () => {
                     <ButtonPrimary text="Start learning" to="/register" margin="0.5rem" height="6vh" padding="3vw" width="12vw" shadow="Shadow" name="NavBtn_Signup" />
                 </div>
             </div>
-            {/* <SocialMenu /> */}
+            <div onMouseLeave={() => setShowSocial(false)} >
+                {
+                    showSocial &&
+                    <SocialMenu />
+                }
+            </div>
         </div>
     );
 };
