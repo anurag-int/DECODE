@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BlurBlobs, ButtonPrimary } from '../Reusable';
 import pattern from '../assets/bgPattern.png';
 import Code from '../assets/Vs Code.png';
 import '../../public/Styles/about.scss';
 const AboutPage = () => {
+
+    const [nav, setNav] = useState(false);
+
+    const scroll = () => {
+        let count = 0;
+        if (window.scroll > 1) {
+            count++;
+        }
+        console.log(window.scrollY);
+    }
+
     return (
         <>
-            <div className="HeroSection">
+            <div className="HeroSection" onScroll={scroll} >
+                <div className="navbg" />
                 <div className="text">
                     <h1>DECODE</h1>
                     <span>learn together grow together</span>

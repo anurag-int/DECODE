@@ -11,6 +11,14 @@
   &::-webkit-scrollbar {
     width: 0px;
   }
+
+  & .navbg{
+    width: 100vw;
+    height: 10vh;
+    background-color: rgba(255, 0, 0, 0);
+    position: absolute;
+  }
+
   & .text {
     margin-top: 15vh;
     display: flex;
