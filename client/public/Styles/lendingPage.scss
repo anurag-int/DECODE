@@ -1,9 +1,5 @@
 @import "../globalStyles.scss";
 
-*{
-    overflow: hidden;
-}
-
 .blob1{
     top: -50vh;
     left: -20vw;
@@ -92,54 +88,39 @@
     & .imgSec{
         margin-left: 5vw;
 
-        & .html,
-        & .website,
-        & .json,
-        & .mobile{
+        & .images{
             position: absolute;
             border-radius: 2vh;
             transition: 0.4s;
+
+            &:hover{
+                box-shadow: 0 4vh 8vh #0000005a;
+                scale: 1.2;
+                z-index: 10;
+            }
         }
 
         & .html{
             height: 30vh;
             margin-left: 5vw;
-            &:hover{
-                height: 32vh;
-                z-index: 10;
-            }
         }
 
         & .website{
             height: 30vh;
             margin-left: 30vw;
             margin-top: 16vh;
-            &:hover{
-                height: 32vh;
-                z-index: 10;
-            }
         }
 
         & .json{
             height: 60vh;
             margin-left: 25vw;
             margin-top: 48vh;
-            &:hover{
-                height: 62vh;
-                z-index: 10;
-                margin-top: 45vh;
-            }
         }
 
         & .mobile{
             height: 80vh;
             margin-left: 5vw;
             margin-top: 35vh;
-            &:hover{
-                height: 82vh;
-                z-index: 10;
-                margin-top: 30vh;
-            }
         }
     }
 }
