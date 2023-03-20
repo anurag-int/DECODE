@@ -1,0 +1,112 @@
+@import "../globalStyles.scss";
+.HeroSection {
+  top: 0;
+  overflow-y: scroll;
+  position: absolute;
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  & .navbg{
+    width: 100vw;
+    height: 10vh;
+    background-color: rgba(255, 0, 0, 0);
+    position: absolute;
+  }
+
+  & .text {
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    & h1 {
+      font-family: $Main-font;
+      color: #fff;
+      text-align: center;
+      font-size: 25vh;
+    }
+
+    & span {
+      display: flex;
+      justify-content: center;
+      color: #fff;
+      font-family: $Text-font;
+      font-size: $Text-Medium;
+      text-transform: uppercase;
+      font-weight: 300;
+      letter-spacing: 20px;
+    }
+  }
+
+  & .pattern {
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    top: 25vh;
+    z-index: -1;
+
+    & img {
+      width: 60vw;
+    }
+  }
+
+  & .reg_button {
+    margin-top: 1.5rem;
+    & .signUp_btn {
+      font-weight: $Font-Regular;
+      letter-spacing: none;
+      font-family: $Text-font;
+      transition: 0.4s;
+      margin-top: 5vh;
+
+      &:hover {
+        border-radius: 5vh;
+      }
+    }
+
+    & .BtnShadow {
+      filter: blur(6vh);
+      opacity: 0.5;
+    }
+  }
+
+  & .ImageSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20vh;
+
+
+    & .vs_code {
+      width: 80vw;
+      box-shadow: 0 8vh 16vh rgba(0, 0, 0, 0.75);
+      border-radius: 3vh;
+    }
+
+
+    & .codeBlob1,
+    & .codeBlob2 {
+      filter: blur(20vh);
+      opacity: 0.5;
+    }
+
+
+    & .codeBlob1 {
+      left: 5vw;
+      margin-top: -30vh;
+    }
+
+
+    & .codeBlob2{
+      right: 5vw;
+      margin-bottom: -30vh;
+    }
+  }
+}

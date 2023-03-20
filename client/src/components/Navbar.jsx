@@ -1,41 +1,47 @@
-import React from 'react'
-import logo from '../assets/Logo.png'
-import NavBar from '../json/navBar.json';
+import React, { useState } from 'react';
+import logo from '../assets/Logo.png';
 import { ButtonPrimary } from '../Reusable';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import '../../public/Styles/navBar.scss'
+import { NavLink, Link } from 'react-router-dom';
+import '../../public/Styles/navBar.scss';
+import SocialMenu from './SocialMenu';
 
 const Navbar = () => {
+
+    const [showSocial, setShowSocial] = useState(false);
+
     return (
-        <motion.div initial={{y:-80, opacity:0}} animate={{y:0, opacity:1, transition:{delay:0.2, duration:0.5}}} exit={{opacity:0, transition:{duration:0.3}}}>
+        <div >
             <div className="navBar">
-                <div className="logoSec">
+                <Link to={"/"} className="logo" >
                     <img src={logo} alt="Decode_Logo" />
                     <span>DECODE</span>
-                </div>
+                </Link>
                 <div className="navLinks">
-                    {
-                        NavBar.map(
-                            navbar => {
-                                return (
-                                    <ul>
-                                        <li>
-                                            <a href="#">{navbar.title}</a>
-                                        </li>
-                                    </ul>
-                                )
-                            }
-                        )
-                    }
+                    <ul>
+                        <li>
+                            <NavLink activeClassName='active' className='nav__link' to={"/about"} >About</NavLink>
+                        </li>
+                        <li>
+                            <a className='nav__link' href='mailto:voidmain.1812@gmail.com' title='mail us your queries' >Questions</a>
+                        </li>
+                        <li>
+                            <a className='nav__link' onMouseEnter={() => setShowSocial(true)} >Social</a>
+                        </li>
+                    </ul>
                 </div>
                 <div className="ButtonSec">
                     <Link to={'/login'} className="login_button">LOGIN</Link>
                     <ButtonPrimary text="Start learning" to="/register" margin="0.5rem" height="6vh" padding="3vw" width="12vw" shadow="Shadow" name="NavBtn_Signup" />
                 </div>
             </div>
-        </motion.div>
-    )
-}
+            <div onMouseLeave={() => setShowSocial(false)} >
+                {
+                    showSocial &&
+                    <SocialMenu />
+                }
+            </div>
+        </div>
+    );
+};
 
-export default Navbar
+export default Navbar;

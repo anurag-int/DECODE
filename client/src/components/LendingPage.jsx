@@ -5,7 +5,6 @@ import html from '../assets/html.png';
 import json from '../assets/json.png';
 import mobile from '../assets/mobile.png';
 import website from '../assets/website.png';
-import Navbar from './Navbar';
 import Images from "../json/lendingImages.json";
 import '../../public/Styles/lendingPage.scss';
 
@@ -17,23 +16,23 @@ const leftRight = {
     visible2: { x: 0, opacity: 1, transition: { delay: 0.6, type: 'spring', stiffness: 80 } },
     visible3: { x: 0, opacity: 1, transition: { delay: 1.5, duration: 0.5, type: 'spring', stiffness: 80 } },
     exit: { x: 100, opacity: 0, transition: { duration: 0.2 } },
-}
+};
 
 const scale = {
     hidden: { scale: 0.75, opacity: 0 },
     visible: { scale: 1, opacity: 1, transition: { duration: 0.3, delay: 1.25, type: 'spring', stiffness: 80 } }
-}
+};
 
 const fadeIn = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.5 } },
     exit: { opacity: 0, transition: { duration: 0.5 } }
-}
+};
 
 const upDown = {
     hidden: { y: -150, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.2, delay: 0.75, type: 'spring', stiffness: 100 } }
-}
+};
 
 const imageAnimation = {
     initial: {
@@ -42,7 +41,7 @@ const imageAnimation = {
     animate: {
         y: 20,
     }
-}
+};
 /* ---------------------------------------------------------------------------------------------------------------------------------- */
 
 
@@ -54,8 +53,7 @@ const images = [html, json, mobile, website];
 const LendingPage = () => {
     return (
 
-        <motion.div initial={{ height: '100vh', opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <Navbar />
+        <motion.div initial={{ height: '100vh', opacity: 0 }} className="mainBody" animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             <motion.div className="blobs">
                 {/* ---------------------------------Background Blobs---------------------------------- */}
                 <motion.div variants={leftRight} initial="hidden" animate="visible" className="Blob blob1">
@@ -83,16 +81,16 @@ const LendingPage = () => {
                         Images.map((item) => {
                             let i = 0;
                             return (
-                                <motion.img variants={imageAnimation} initial="initial" animate="animate" transition={{ duration: item.duration, repeat: Infinity, repeatType: 'reverse' }} src={images[item.src]} title={item.title} alt="" className={item.className} />
-                            )
+                                <motion.img variants={imageAnimation} initial="initial" animate="animate" transition={{ duration: item.duration, repeat: Infinity, repeatType: 'reverse' }} src={images[item.src]} title={item.title} alt="" className={` images ${item.className}`} />
+                            );
                         })
                     }
                 </motion.div>
             </div>
         </motion.div>
-    )
-}
+    );
+};
 
 /* ---------------------------------------------------------------------------------------------------------------------------------- */
 // Export components
-export default LendingPage
+export default LendingPage;
