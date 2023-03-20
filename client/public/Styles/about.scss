@@ -1,8 +1,7 @@
 @import "../globalStyles.scss";
 .HeroSection {
-  top: 0;
-  overflow-y: scroll;
   position: absolute;
+  overflow-y: scroll;
   overflow-x: hidden;
   height: 100%;
   width: 100%;
@@ -12,15 +11,8 @@
     width: 0px;
   }
 
-  & .navbg{
-    width: 100vw;
-    height: 10vh;
-    background-color: rgba(255, 0, 0, 0);
-    position: absolute;
-  }
-
   & .text {
-    margin-top: 15vh;
+    margin-top: 10vh;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -60,14 +52,15 @@
   & .reg_button {
     margin-top: 1.5rem;
     & .signUp_btn {
-      font-weight: $Font-Regular;
-      letter-spacing: none;
-      font-family: $Text-font;
-      transition: 0.4s;
       margin-top: 5vh;
+      font-weight: $Font-Regular;
+      font-family: $Text-font;
+      font-size: $Text;
+      letter-spacing: 5px;
+      transition: 0.4s;
 
       &:hover {
-        border-radius: 5vh;
+        scale: 1.2;
       }
     }
 
@@ -78,11 +71,13 @@
   }
 
   & .ImageSection {
+    z-index: -1;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20vh;
-
+    margin-bottom: 20vh;
 
     & .vs_code {
       width: 80vw;
@@ -90,6 +85,22 @@
       border-radius: 3vh;
     }
 
+    & .vs_logo,
+    & .github {
+      position: absolute;
+      height: 150px;
+    }
+
+    & .vs_logo {
+      top: -10vh;
+      left: 5vw;
+    }
+
+    & .github {
+      bottom: -8vh;
+      height: 100px;
+      right: 25vw;
+    }
 
     & .codeBlob1,
     & .codeBlob2 {
@@ -97,16 +108,50 @@
       opacity: 0.5;
     }
 
-
     & .codeBlob1 {
       left: 5vw;
       margin-top: -30vh;
     }
 
-
-    & .codeBlob2{
+    & .codeBlob2 {
       right: 5vw;
       margin-bottom: -30vh;
+    }
+
+    & .animation {
+      position: absolute;
+      right: 5vw;
+    }
+
+    & .Tagline {
+      & .line1,
+      & .line2 {
+        background-color: #fff;
+        padding: 3vh 8vh;
+        font-family: $Text-font;
+        font-weight: 700;
+        font-size: $Text-Medium;
+        position: absolute;
+        z-index: 1;
+        width: auto;
+        border-radius: 5vh;
+        letter-spacing: 2.5px;
+      }
+
+      & .line1 {
+        color: #009525;
+        border: 5px solid #009525;
+        top: -5vh;
+        right: 10vw;
+      }
+
+      & .line2 {
+        background-color: #ff00ae;
+        color: #ffffff;
+        border: 5px solid #ffffff;
+        bottom: -5vh;
+        left: 10vw;
+      }
     }
   }
 }
